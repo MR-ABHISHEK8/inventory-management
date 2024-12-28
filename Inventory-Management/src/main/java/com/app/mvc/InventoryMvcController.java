@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import java.util.List;
 
@@ -28,6 +28,11 @@ public class InventoryMvcController {
     public String getMeasurementView(Model model){
        model.addAttribute("measurementTypeList",itemTypeService.getAllMeasurementType());
         return "inventory/measurementType";
+    }
+
+    @GetMapping("/item")
+    public String item(){
+        return "inventory/item";
     }
 
 }

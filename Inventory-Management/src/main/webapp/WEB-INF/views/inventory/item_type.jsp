@@ -15,49 +15,60 @@
     <jsp:include page="../../common/common_link.jsp"></jsp:include>
 </head>
 <body>
+<jsp:include page="../../common/nav-bar.jsp"></jsp:include>
+<div id="wrapper">
+    <!-- Sidebar -->
+    <jsp:include page="../../common/side-bar.jsp"></jsp:include>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid xyz">
 
-<div class="my-2 text-end mx-5">
-    <button class="btn btn-primary" onclick="addEditItemPage()">Add Item Type</button>
-</div>
-<div class="my-2">
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Sr No.</th>
-            <th scope="col">Name</th>
-            <th scope="col">Prefix</th>
-            <th scope="col">Suffix</th>
-            <th scope="col">Zero Padding</th>
-            <th scope="col">Separator</th>
-            <th scope="col">Start No.</th>
-            <th scope="col">Last No.</th>
-        </tr>
-        </thead>
-        <tbody>
-            <%
-                List<ItemTypeEntity> itemTypeList=(List<ItemTypeEntity>)request.getAttribute("allItemTypeList");
-                if (itemTypeList!=null && !itemTypeList.isEmpty()){
-                    int i=1;
-                    for (ItemTypeEntity entity:itemTypeList){
+            <div class="my-2 text-end mx-5">
+                <button class="btn btn-primary" onclick="addEditItemPage()">Add Item Type</button>
+            </div>
+            <div class="my-2">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Sr No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Prefix</th>
+                        <th scope="col">Suffix</th>
+                        <th scope="col">Zero Padding</th>
+                        <th scope="col">Separator</th>
+                        <th scope="col">Start No.</th>
+                        <th scope="col">Last No.</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%
+                        List<ItemTypeEntity> itemTypeList=(List<ItemTypeEntity>)request.getAttribute("allItemTypeList");
+                        if (itemTypeList!=null && !itemTypeList.isEmpty()){
+                            int i=1;
+                            for (ItemTypeEntity entity:itemTypeList){
 
-                        %>
-            <tr>
-                <td><%=i++%></td>
-                <td><%=entity.getName()%></td>
-                <td><%=entity.getPrefix()%></td>
-                <td><%=entity.getSuffix()%></td>
-                <td><%=entity.getZeroPadding()%></td>
-                <td><%=entity.getSeparator()%></td>
-                <td><%=entity.getStartNo()%></td>
-                <td><%=entity.getLastNo()%></td>
-            </tr>
-            <%
-                    }
-                }
+                    %>
+                    <tr>
+                        <td><%=i++%></td>
+                        <td><%=entity.getName()%></td>
+                        <td><%=entity.getPrefix()%></td>
+                        <td><%=entity.getSuffix()%></td>
+                        <td><%=entity.getZeroPadding()%></td>
+                        <td><%=entity.getSeparator()%></td>
+                        <td><%=entity.getStartNo()%></td>
+                        <td><%=entity.getLastNo()%></td>
+                    </tr>
+                    <%
+                            }
+                        }
 
-            %>
-        </tbody>
-    </table>
+                    %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

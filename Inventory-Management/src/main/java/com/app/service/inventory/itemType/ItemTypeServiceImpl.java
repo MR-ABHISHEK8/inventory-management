@@ -7,6 +7,8 @@ import com.app.repo.inventory.MeasurementTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -52,4 +54,13 @@ public class ItemTypeServiceImpl implements ItemTypeService {
         return measurementTypeRepo.findAll();
     }
 
+    public Map<String,Object>getItemBasicDetails(){
+        Map<String,Object>resultMap= new HashMap<>();
+        List<ItemTypeEntity> itemTypeList = itemTypeRepo.findAll();
+
+        resultMap.put("itemTypeList",itemTypeList);
+        resultMap.put("measurementTypeList",measurementTypeRepo.findAll());
+        return resultMap;
+    }
 }
+

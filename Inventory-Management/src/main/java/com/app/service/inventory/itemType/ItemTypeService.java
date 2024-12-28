@@ -11,4 +11,6 @@ public interface ItemTypeService {
     void saveUpdateMeasurementType(Map<String,Object> param);
     List<ItemTypeEntity> getAllItemType();
     List<MeasurementTypeEntity>getAllMeasurementType();
+
+    Map<String,Object>getItemBasicDetails();
 }
